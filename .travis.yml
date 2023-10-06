@@ -1,0 +1,17 @@
+language: java
+jdk:
+  - oraclejdk8
+before_install:
+  - chmod +x gradlew
+  - chmod +x gradle/wrapper/gradle-wrapper.jar
+services:
+  - docker
+git:
+  depth: 3
+script:
+  - ./gradlew package
+  - ./gradlew build
+  - ./gradlew test
+  - docker build . -t=kotlin-example-console:travis-build-$TRAVIS_BUILD_NUMBER
+on:
+  branch: develop 

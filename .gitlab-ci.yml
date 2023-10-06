@@ -49,7 +49,7 @@ build-docker:
     - install-dependencies
   script:
     - echo "Build docker 🐳"
-    - docker build . -t=kotlin-my-project-console:gitlab-build-${CI_PIPELINE_IID}
+    - docker build . -t=kotlin-example-console:gitlab-build-${CI_PIPELINE_IID}
   artifacts:
     expire_in: 1hr
     paths:
